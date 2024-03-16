@@ -1,12 +1,12 @@
 import { ThemeProvider } from "@/context/ThemeProvider";
-import { Button } from "@/components/ui/button";
-import { ModeToggle } from "@/components";
+import { Layout } from "@/components";
 
 function App() {
     return (
         <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-            <ModeToggle />
-            <Button>Hi</Button>
+            <Layout>
+                <p>Hi</p>
+            </Layout>
         </ThemeProvider>
     );
 }
