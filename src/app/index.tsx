@@ -3,7 +3,7 @@ import { Layout } from "@/components";
 
 function App() {
     return (
-        <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+        <ThemeProvider>
             <Layout>
                 <p>Hi</p>
             </Layout>
