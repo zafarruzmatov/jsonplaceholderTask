@@ -1,6 +1,6 @@
+import { useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Icons } from "@/components";
-import { useMemo } from "react";
 
 export const TableFilter = () => {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -29,7 +29,7 @@ export const TableFilter = () => {
             <div className="relative flex max-w-80 overflow-hidden rounded-lg border">
                 <label
                     htmlFor="userSearch"
-                    className="flex items-center justify-center px-2"
+                    className="flex items-center justify-center bg-slate-100 px-2"
                 >
                     <Icons.search />
                 </label>
@@ -38,14 +38,14 @@ export const TableFilter = () => {
                     id="userSearch"
                     placeholder="Search User"
                     value={userSearchValue}
-                    className="grow bg-transparent px-2 py-2 outline-none"
+                    className="grow bg-transparent py-2 pl-2 pr-8 outline-none"
                     onChange={(e) => searchName(e.target.value)}
                 />
 
                 {viewCloseBtn && (
                     <button
                         onClick={deleteSearchParams}
-                        className="absolute right-2 top-2/4 -translate-y-2/4 p-1"
+                        className="absolute right-1 top-2/4 -translate-y-2/4 p-1"
                     >
                         <Icons.close />
                     </button>
