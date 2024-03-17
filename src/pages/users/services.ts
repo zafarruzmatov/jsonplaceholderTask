@@ -1,7 +1,8 @@
-import { Api } from "@/api";
-import { useQuery } from "@tanstack/react-query";
-import { IUserResponseGet } from "./type";
 import { useMemo } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { Api } from "@/api";
+
+import type { IUserResponseGet } from "./type";
 
 export const useUserGet = () => {
     const getData = () =>
