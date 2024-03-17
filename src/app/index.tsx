@@ -1,11 +1,12 @@
 import { ThemeProvider } from "@/context/ThemeProvider";
 import { Layout } from "@/components";
+import { UsersPage } from "@/pages";
 
 function App() {
     return (
         <ThemeProvider>
             <Layout>
-                <p>Hi</p>
+                <UsersPage />
             </Layout>
         </ThemeProvider>
     );

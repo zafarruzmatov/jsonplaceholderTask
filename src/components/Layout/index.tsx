@@ -6,6 +6,6 @@ import type { LayoutProps } from "./types";
 export const Layout: FC<LayoutProps> = ({ children }) => (
     <div className="flex flex-col">
         <Header />
-        {children}
+        <main className="grow">{children}</main>
     </div>
 );
