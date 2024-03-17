@@ -1,30 +1,11 @@
 import { Table } from "@/components";
-import { IColumnProps } from "@/components/Table/types";
+import { useUserGet } from "./services";
 
-type Data = {
-    id: number;
-    name: string;
-    username: string;
-    email: string;
-};
+import type { IColumnProps } from "@/components/Table/types";
+import type { IUserResponseGet } from "./type";
 
 export const UsersPage = () => {
-    const data: Data[] = [
-        {
-            id: 1,
-            name: "Leanne Graham",
-            username: "Bret",
-            email: "Sincere@april.biz",
-        },
-        {
-            id: 2,
-            name: "Ervin Howell",
-            username: "Antonette",
-            email: "Shanna@melissa.tv",
-        },
-    ];
-
-    const columns: Array<IColumnProps<Data>> = [
+    const columns: Array<IColumnProps<IUserResponseGet>> = [
         {
             key: "username",
             title: "username",
@@ -47,10 +28,12 @@ export const UsersPage = () => {
         },
     ];
 
+    const { data, isLoading } = useUserGet();
+
     return (
         <section className="container">
-            <h1 className="mb-5 text-2xl text-black">Users</h1>
-            <Table columns={columns} data={data} />
+            <h1 className="mb-5 text-2xl text-black dark:text-white">Users</h1>
+            <Table loading={isLoading} columns={columns} data={data} />
         </section>
     );
 };

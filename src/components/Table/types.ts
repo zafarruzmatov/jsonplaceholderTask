@@ -9,4 +9,5 @@ export interface IColumnProps<T> {
 export interface TableProps<T> {
     columns: Array<IColumnProps<T>>;
     data?: T[];
+    loading?: boolean;
 }

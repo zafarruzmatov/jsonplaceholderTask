@@ -1,6 +1,7 @@
+import { Icons } from "..";
 import type { TableProps } from "./types";
 
-export const Table = <T,>({ data, columns }: TableProps<T>) => {
+export const Table = <T,>({ data, columns, loading }: TableProps<T>) => {
     const headers = columns.map((column, index) => {
         return (
             <th key={`headCell-${index}`} className="p-2 text-left">
@@ -37,8 +38,13 @@ export const Table = <T,>({ data, columns }: TableProps<T>) => {
     );
 
     return (
-        <div className="overflow-x-auto rounded-md border">
-            <table className="table w-full">
+        <div className="relative overflow-x-auto rounded-md border">
+            {!!loading && (
+                <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-5">
+                    <Icons.loadingSpinner />
+                </div>
+            )}
+            <table className="table min-h-64 w-full">
                 <thead className="bg-slate-100 text-black">
                     <tr>{headers}</tr>
                 </thead>

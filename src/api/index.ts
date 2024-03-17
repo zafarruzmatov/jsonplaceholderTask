@@ -1,6 +1,5 @@
 import axios from "axios";
-
-const baseURL = "";
+import { baseURL } from "@/constants/urls";
 
 export const Api = axios.create({
     baseURL,
