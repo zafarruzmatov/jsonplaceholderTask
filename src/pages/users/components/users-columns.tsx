@@ -1,5 +1,5 @@
 import type { IColumnProps } from "@/components/Table/types";
-import type { IUserResponseGet } from "./type";
+import type { IUserResponseGet } from "../type";
 
 export const userColumns: Array<IColumnProps<IUserResponseGet>> = [
     {
