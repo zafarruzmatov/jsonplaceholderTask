@@ -1,13 +1,16 @@
-import { ThemeProvider } from "@/context/ThemeProvider";
+import ThemeProvider from "@/context/ThemeProvider";
+import QueryContextProvider from "@/context/QueryProvider";
 import { Layout } from "@/components";
 import { UsersPage } from "@/pages";
 
 function App() {
     return (
         <ThemeProvider>
-            <Layout>
-                <UsersPage />
-            </Layout>
+            <QueryContextProvider>
+                <Layout>
+                    <UsersPage />
+                </Layout>
+            </QueryContextProvider>
         </ThemeProvider>
     );
 }
