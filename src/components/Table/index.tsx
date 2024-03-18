@@ -5,7 +5,7 @@ import type { TableProps } from "./types";
 export const Table = <T,>({ data, columns, loading }: TableProps<T>) => {
     const headers = columns.map((column, index) => {
         return (
-            <th key={`headCell-${index}`} className="p-2 text-left">
+            <th key={`headCell-${index}`} className="px-3 py-2 text-left">
                 {column.title}
             </th>
         );

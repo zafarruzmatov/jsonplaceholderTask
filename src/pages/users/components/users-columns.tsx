@@ -4,20 +4,14 @@ import type { IUserResponseGet } from "../type";
 export const userColumns: Array<IColumnProps<IUserResponseGet>> = [
     {
         key: "username",
-        title: "username",
+        title: "Username",
     },
     {
         key: "name",
-        title: "name",
+        title: "Name",
     },
     {
         key: "email",
-        title: "email",
-
-        render: (_, record) => {
-            return (
-                <div className="font-bold text-blue-500">{record.email}</div>
-            );
-        },
+        title: "Email",
     },
 ];
