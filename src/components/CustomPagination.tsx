@@ -1,4 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "react-router-dom";
+import clsx from "clsx";
 import {
     Pagination,
     PaginationContent,
@@ -7,8 +9,6 @@ import {
     PaginationNext,
     PaginationPrevious,
 } from "@/components/ui/pagination";
-import { useSearchParams } from "react-router-dom";
-import clsx from "clsx";
 
 interface CustomPaginationProps<T> {
     data: T[];
