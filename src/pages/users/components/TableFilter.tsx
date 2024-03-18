@@ -16,7 +16,8 @@ export const TableFilter = () => {
     };
 
     const searchName = (value: string) => {
-        if (value.trim() !== "") {
+        value = value.trim();
+        if (value !== "") {
             searchParams.set("name", value);
             setSearchParams(searchParams);
         } else {

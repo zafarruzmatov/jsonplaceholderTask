@@ -1,4 +1,5 @@
 import { Icons } from "..";
+import { CustomPagination } from "../CustomPagination";
 import type { TableProps } from "./types";
 
 export const Table = <T,>({ data, columns, loading }: TableProps<T>) => {
@@ -38,19 +39,22 @@ export const Table = <T,>({ data, columns, loading }: TableProps<T>) => {
     );
 
     return (
-        <div className="relative overflow-x-auto rounded-md border">
-            {!!loading && (
-                <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-5">
-                    <Icons.loadingSpinner />
-                </div>
-            )}
-            <table className="table min-h-64 w-full">
-                <thead className="bg-slate-100 text-black">
-                    <tr>{headers}</tr>
-                </thead>
+        <div className="relative">
+            <div className="relative overflow-x-auto rounded-md border">
+                {!!loading && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-5">
+                        <Icons.loadingSpinner />
+                    </div>
+                )}
+                <table className="table min-h-64 w-full">
+                    <thead className="bg-slate-100 text-black">
+                        <tr>{headers}</tr>
+                    </thead>
 
-                <tbody>{rows}</tbody>
-            </table>
+                    <tbody>{rows}</tbody>
+                </table>
+            </div>
+            {Array.isArray(data) && <CustomPagination<T> data={data} />}
         </div>
     );
 };
