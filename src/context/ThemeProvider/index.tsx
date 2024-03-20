@@ -1,4 +1,5 @@
 import { useState, useEffect, createContext } from "react";
+import { getDefaultTheme, isBrowserDefaultDark } from "@/lib/utils";
 
 import type { Theme, ThemeProviderProps, ThemeProviderState } from "./types";
 
@@ -17,33 +18,34 @@ const ThemeProvider = ({
     ...props
 }: ThemeProviderProps) => {
     const [theme, setTheme] = useState<Theme>(
-        () => (localStorage.getItem(storageKey) as Theme) || defaultTheme,
+        defaultTheme ?? getDefaultTheme(storageKey),
     );
 
-    useEffect(() => {
+    const addThemeRoot = (theme: Theme) => {
         const root = window.document.documentElement;
 
         root.classList.remove("light", "dark");
 
         if (theme === "system") {
-            const systemTheme = window.matchMedia(
-                "(prefers-color-scheme: dark)",
-            ).matches
-                ? "dark"
-                : "light";
+            const systemTheme = isBrowserDefaultDark() ? "dark" : "light";
 
             root.classList.add(systemTheme);
             return;
         }
 
         root.classList.add(theme);
-    }, [theme]);
+    };
+
+    useEffect(() => {
+        addThemeRoot(theme);
+    }, []);
 
     const value = {
         theme,
         setTheme: (theme: Theme) => {
             localStorage.setItem(storageKey, theme);
             setTheme(theme);
+            addThemeRoot(theme);
         },
     };
 
